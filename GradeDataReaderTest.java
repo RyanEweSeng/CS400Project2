@@ -70,7 +70,6 @@ class GradeDataReaderTest {
 		} else {
 			fail("The readDataSet() is empty.");
 		}
-
 	}
 
 	/**
@@ -93,18 +92,13 @@ class GradeDataReaderTest {
 			e.printStackTrace();
 		}
 
-		List<String> firstGradeName = new ArrayList<String>();
-		firstGradeName.add("Bryanna");
-		firstGradeName.add("Plaisir");
+		String firstGradeName = "Bryanna Plaisir";
 		Grade first = new Grade(firstGradeName, 76);
 		assertEquals(first.toString(), data.get(0).toString());
 
-		List<String> lastGradeName = new ArrayList<String>();
-		lastGradeName.add("Dragan");
-		lastGradeName.add("Malone");
+		String lastGradeName = "Dragan Malone";
 		Grade last = new Grade(lastGradeName, 23);
 		assertEquals(last.toString(), data.get(data.size() - 1).toString());
 
 	}
-
 }

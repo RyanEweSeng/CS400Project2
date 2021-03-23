@@ -10,13 +10,13 @@ import java.util.List;
 
 
 public interface GradeInterface extends Comparable<GradeInterface>{
-	public List<String> getStudent();
+	public String getStudent();
 	public Integer getGrade();
 
 	public String getFirstName();
 	public String getLastName();
 	public void setGrade(int grade);
-	public void setStudent(List<String> name);
+	public void setStudent(String name);
 	
 	public int compareTo(GradeInterface otherGrade);
 	public String toString(); 

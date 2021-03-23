@@ -7,8 +7,7 @@
 // Lecturer: Florian
 // Notes to Grader: N/A
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 /**
  * Grade class that acts as an object that stores a student's name and grade
@@ -17,26 +16,24 @@ import java.util.List;
  */
 public class Grade implements GradeInterface{
 	// Instance fields
-	private List<String> student = new ArrayList();
+	private String student;
 	private int grade;
+	private String firstName;
+	private String lastName;
 	
 	/**
 	 * Constructor that collects the student's name and grade
 	 * @param student
 	 * @param grade
 	 */
-	public Grade(List<String> student, int grade) {
+	public Grade(String student, int grade) {
+		Scanner nameScan = new Scanner(student);
 		this.student = student;
 		this.grade = grade;
+		firstName = nameScan.next();
+		lastName = nameScan.next();
 	}
 	
-	/**
-	 * Returns the student's name
-	 */
-	@Override
-	public List<String> getStudent() {
-		return student;
-	}
 
 	/**
 	 * Returns the student's grade
@@ -68,7 +65,6 @@ public class Grade implements GradeInterface{
 	 * @return first name of student
 	 */
 	public String getFirstName() {
-		String firstName = student.get(0);
 		return firstName;
 	}
 
@@ -78,7 +74,6 @@ public class Grade implements GradeInterface{
 	 * @return last name of student
 	 */
 	public String getLastName() {
-		String lastName = student.get(1);
 		return lastName;
 	}
 
@@ -96,7 +91,7 @@ public class Grade implements GradeInterface{
 	 * Sets the name for this student
 	 * @param name the name being assigned to this student
 	 */
-	public void setStudent(List<String> name) {
+	public void setStudent(String name) {
 		this.student = name;
 	}
 
@@ -104,6 +99,14 @@ public class Grade implements GradeInterface{
 	 * Returns this student in a string format
 	 */
 	public String toString() {
-		return "Student: " + student.get(0) + " " + student.get(1) + " Grade: " + grade;
+		return "Student: " + student + " Grade: " + grade;
+	}
+
+	/**
+	 * Returns the student's name
+	 */
+	@Override
+	public String getStudent() {
+		return student;
 	}
 }

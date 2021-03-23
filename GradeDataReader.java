@@ -52,13 +52,13 @@ public class GradeDataReader implements GradeDataReaderInterface{
 			dataLine = dataLine.replaceAll(",", " ");
 			
 			Scanner lineScan = new Scanner(dataLine);
-			List<String> name = new ArrayList<String>();
-			name.add(lineScan.next());
-			name.add(lineScan.next());
+			
+			String studentName = lineScan.next();
+			studentName = studentName + " " + lineScan.next();
 			
 			int grade = lineScan.nextInt();
 			
-			Grade student = new Grade(name, grade);
+			Grade student = new Grade(studentName, grade);
 			studentGrades.add(student);
 			
 			lineScan.close();
