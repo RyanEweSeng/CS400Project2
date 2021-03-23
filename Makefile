@@ -1,8 +1,22 @@
-run:
-	@echo "FIXME: *make run* or just *make* should be the default target which compiles (when needed) and executes your code."
+# --== CS400 File Header Information ==--
+# Name: Ryan Toh
+# Email: retoh@wisc.edu
+# Team: IG
+# Role: Integration Manager
+# TA: Sid
+# Lecturer: Gary Dahl
+# Notes to Grader: N/A
+
+run: compile
+	java Frontend
 
 compile:
-	@echo "FIXME: *make compile* should compile the code for your project"
+	javac Grade.java
+	javac GradeInterface.java
+	javac GradeDataReader.java
+	javac GradeDataReaderInterface.java
+	javac -cp junit5.jar GradeTest.java
+	# javac -cp junit5.jar GradeDataReaderTest.java
 
 test: testData testBackend testFrontend
 
@@ -12,8 +26,9 @@ testFrontend:
 testBackend:
 	@echo "FIXME: *make testFrontend* should compile (when needed) and run all your team's tests for this application"
 
-testData:
-	@echo "FIXME: *make testFrontend* should compile (when needed) and run all your team's tests for this application"
+testData: compile
+	java -jar junit5.jar -cp GradeTest --scan-classpath
+	java -jar junit5.jar -cp GradeDataReaderTest --scan-classpath
 
 clean:
-	$(RM) *.class
+	rm *.class
