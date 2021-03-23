@@ -49,7 +49,7 @@ public class Grade implements GradeInterface{
 	 * 
 	 * @return 0 if the grades are equal, 1 if the original grade is higher, and lower if the grade is lower
 	 */
-	public int compareTo(GradeInterface otherGrade) {
+	public int compareTo(Grade otherGrade) {
 		if (grade == otherGrade.getGrade()) {
 			return 0;
 		} else if (otherGrade.getGrade() > grade) {
@@ -109,4 +109,11 @@ public class Grade implements GradeInterface{
 	public String getStudent() {
 		return student;
 	}
+
+
+    @Override
+    public int compareTo(GradeInterface otherGrade) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

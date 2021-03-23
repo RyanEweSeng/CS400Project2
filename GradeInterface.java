@@ -9,7 +9,7 @@
 import java.util.List;
 
 
-public interface GradeInterface extends Comparable<GradeInterface>{
+public interface GradeInterface extends Comparable<Grade>{
 	public String getStudent();
 	public Integer getGrade();
 
