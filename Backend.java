@@ -38,13 +38,13 @@ public class Backend implements BackendInterface {
     }
     
     public String get(RedBlackTree.Node<Grade> node, int grade) {
-        if (node == null || node.data.getGrade() == grade) {
+        if (node.data.getGrade() == grade) {
             return node.data.getStudent();
-        } else if (node.data.getGrade() > grade) {
-            return get(node.leftChild, grade);
         } else if (node.data.getGrade() < grade) {
+            return get(node.leftChild, grade);
+        } else if (node.data.getGrade() > grade) {
             return get(node.rightChild, grade);
-        } else {
+        } else if (node == null) {
             System.out.println("Grade doesn't exist in rbt");
         }
         return null;
