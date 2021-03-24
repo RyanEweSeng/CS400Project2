@@ -1,3 +1,11 @@
+// --== CS400 File Header Information ==--
+// Name: Aidan Lonergan
+// Email: alonergan@wisc.edu
+// Team: IG Red
+// Role: Backend
+// TA: Sid
+// Lecturer: Gary Dahl
+// Notes to Grader: n/a
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +17,6 @@ import java.lang.Math;
 public class Backend implements BackendInterface {
 
     private RedBlackTree<Grade> rbt = new RedBlackTree<Grade>();
-    private int rbtSum;
     
     /**
      * default constructor that takes the list of grades and adds them to
