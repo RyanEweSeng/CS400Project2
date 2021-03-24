@@ -8,14 +8,40 @@ Team: Red
 
 Complete List of Files:
 -----------------------
-<List all files that are a part of this project along with the name of the team
- member(s) who were most responsible for implementing the computation within
- each of these files.>
+Ryan Toh (Integration Manager)
+	Makefile
+
+Ethan McKellips (Data Wrangler)
+	Grade.java
+	GradeInterface.java
+	GradeDataReader.java
+	GradeDataReaderInterface.java
+	GradeTest.java
+	GradeDataReaderTest.java
+
+Aidan Lonergan (Backend Developer)
+	Backend.java
+	BackendInterface.java
+	BackendTest.java
+	RedBlackTree.java
+
+Elliot Virtue (Frontend Developer)
+	Frontend.java
+	FrontendTest.java
 
 Instructions to Build, Run and Test your Project:
 -------------------------------------------------
-<Describe here any instructions that will be needed by course staff to build,
- run, and test this project.>
+make/make run: compiles and runs the app
+
+make test: runs the tests for data, backend, and frontend
+
+make testData: runs only the data tests
+
+make testFrontend: runs only the frontend tests
+
+make testBackend: runs only the backend tests
+
+make clean: removes all .class files
 
 Team Member Contributions:
 --------------------------
