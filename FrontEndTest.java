@@ -22,7 +22,7 @@ public class FrontEndTest {
   @Test
   public void testUseStudentMode() {
     Scanner sc = new Scanner("69\nx");
-    Grade grade = Frontend.studentMode(sc);
+    String grade = Frontend.studentMode(sc);
     assertEquals(grade, new Grade("Elliot Virtue", 43));
   }
   
