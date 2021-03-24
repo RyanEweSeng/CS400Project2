@@ -17,13 +17,16 @@ compile:
 	javac GradeDataReaderInterface.java
 	javac Backend.java
 	javac BackendInterface.java
+	javac RedBlackTree.java
+	javac SortedCollectionInterface.java
 	javac -cp .:./junit5.jar GradeTest.java GradeDataReaderTest.java
-	javac -cp .:./junit5.jar BackendTest.java 
+	javac -cp .:./junit5.jar BackendTest.java
+	# javac -cp .:./junit5.jar FrontendTest.java
 
 test: testData testBackend testFrontend
 
-testFrontend: 
-	
+testFrontend: compile	
+	# java -jar junit5.jar -cp . --scan-classpath FrontendTest
 
 testBackend: compile
 	java -jar junit5.jar -cp . --scan-classpath BackendTest
