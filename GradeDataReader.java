@@ -37,9 +37,9 @@ public class GradeDataReader implements GradeDataReaderInterface{
 	 * @return an ArrayList of Grade objects
 	 */
 	@Override
-	public List<GradeInterface> readDataSet(Reader csvReader)
+	public List<Grade> readDataSet(Reader csvReader)
 			throws FileNotFoundException, IOException, DataFormatException {
-		List<GradeInterface> studentGrades = new ArrayList<GradeInterface>();
+		List<Grade> studentGrades = new ArrayList<Grade>();
 		String dataLine = null;
 		
 		// Essentially converts the reader into a buffered reader so it can iterate through the file

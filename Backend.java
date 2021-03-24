@@ -1,13 +1,36 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.IOException;
+import java.util.zip.DataFormatException;
+import java.io.Reader;
 import java.lang.Math;
 
 public class Backend implements BackendInterface {
 
     private RedBlackTree<Grade> rbt = new RedBlackTree<Grade>();
     private int rbtSum;
-
+    
+    /**
+     * default constructor that takes the list of grades and adds them to
+     * the rbt
+     */
+    public Backend(Reader r) throws IOException {
+        GradeDataReader reader = new GradeDataReader();
+        List<Grade> data = null;
+        // read data
+        try {
+            data = reader.readDataSet(r);
+        } catch (IOException | DataFormatException e) {
+            System.out.println("Error parsing file");
+        }
+        // input into rbt
+        for (int i = 0; i < data.size(); i++) {
+            rbt.insert(data.get(i));
+        }
+    }
+    
+    
     /**
      * Adds student name to the grade node specified
      * @param grade     grade node to add to
@@ -21,6 +44,11 @@ public class Backend implements BackendInterface {
             return true;
         }
         return false;
+    }
+    
+    public List<Grade> getStudents(int grade) {
+        
+        return null;
     }
 
     /**
