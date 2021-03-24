@@ -37,7 +37,7 @@ class GradeDataReaderTest {
 	 */
 	@BeforeEach
 	void beforeEach() {
-		File file = new File("C:\\Users\\Ethan\\eclipse-workspace\\CS400GradeProject\\src\\gradeData.csv");
+		File file = new File("gradeData.csv");
 		try {
 			fr = new FileReader(file);
 		} catch (FileNotFoundException e) {

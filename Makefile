@@ -19,21 +19,22 @@ compile:
 	javac BackendInterface.java
 	javac RedBlackTree.java
 	javac SortedCollectionInterface.java
+	javac Frontend.java
 	javac -cp .:./junit5.jar GradeTest.java GradeDataReaderTest.java
 	javac -cp .:./junit5.jar BackendTest.java
-	# javac -cp .:./junit5.jar FrontendTest.java
+	javac -cp .:./junit5.jar FrontEndTest.java
 
 test: testData testBackend testFrontend
 
 testFrontend: compile	
-	# java -jar junit5.jar -cp . --scan-classpath FrontendTest
+	java -jar junit5.jar -cp . --scan-classpath -n FrontEndTest
 
 testBackend: compile
-	java -jar junit5.jar -cp . --scan-classpath BackendTest
+	java -jar junit5.jar -cp . --scan-classpath -n BackendTest
 
 testData: compile
-	java -jar junit5.jar -cp . --scan-classpath GradeTest
-	java -jar junit5.jar -cp . --scan-classpath GradeDataReaderTest
+	java -jar junit5.jar -cp . --scan-classpath -n GradeTest
+	java -jar junit5.jar -cp . --scan-classpath -n GradeDataReaderTest
 
 clean:
 	rm *.class

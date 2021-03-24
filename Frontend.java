@@ -15,26 +15,26 @@ public class Frontend {
   private static Boolean run = true;
   private static Scanner sc = new Scanner(System.in);
   private static String currentInput;
-    private static Backend Backend;
+  private static Backend Backend;
   //private static Backend Backend = new Backend();
   public static void main(String[] args) {
     try {
-    Backend = new Backend(new BufferedReader(new FileReader("Book1.csv")));
+    Backend = new Backend(new BufferedReader(new FileReader("gradeData.csv")));
     } catch (Exception e) {
       e.printStackTrace();
     }
     while (run) {
-      printMainCommands();
+      System.out.println(printMainCommands());
       currentInput = sc.nextLine();
 
       // student mode
       if (currentInput.contentEquals("s")) {
-        studentMode();
+        studentMode(sc);
       }
 
       // math mode
       else if (currentInput.contentEquals("m")) {
-        mathMode();
+        mathMode(sc);
       }
 
       // quit
@@ -51,28 +51,31 @@ public class Frontend {
     }
   }
 
-  public static void studentMode() {
+  public static String studentMode(Scanner input) {
+    Scanner scnr = input;
     boolean sm = true;
     Integer numInput;
+    String toReturn = null;
     while (sm) {
       numInput = -1;
-      printSMCommands();
-      if (sc.hasNextInt()) { // if input is an int, puts it into
-        numInput = sc.nextInt();
+      System.out.println(printSMCommands());
+      if (scnr.hasNextInt()) { // if input is an int, puts it into
+        numInput = scnr.nextInt();
         currentInput = numInput.toString();
       } else {
-        currentInput = sc.nextLine();
+        currentInput = scnr.nextLine();
       }
 
       if (currentInput.contentEquals("x")) {
         sm = false;
-        return;
+        return toReturn;
       } else if (numInput != -1) {
         if (numInput < 0 || numInput > 100) {
           System.out.println("Number out of range, please input a number between 0 and 100");
           continue;
         } else {
-          //System.out.println(Backend.get(numInput).toString());
+          System.out.println(Backend.get(Backend.rbt.root,(int)numInput).toString());
+          toReturn = Backend.get(Backend.rbt.root,(int)numInput);
         }
       }
 
@@ -81,34 +84,44 @@ public class Frontend {
         System.out.println("User Input is not accepted");
       }
     }
+    return null;
   }
 
-  public static void mathMode() {
+  public static String mathMode(Scanner input) {
     boolean mm = true;
+    String output = "";
+    Scanner scnr = input;
     while (mm) {
-      printMMCommands();
-      System.out.println("Min: " + Backend.getMin());
-      System.out.println("Max: " + Backend.getMax());
-      System.out.println("Mode: " + Backend.getMode());
-      System.out.println("Mean: " + Backend.getMean());
-      System.out.println("Median: " + Backend.getMedian());
-      System.out.println("Standard Deviation: " + Backend.getSDev());
+      output += "Min: " + Backend.getMin() + "\n";
+      output += "Max: " + Backend.getMax() + "\n";
+      output += "Mode: " + Backend.getMode() + "\n";
+      output += "Mean: " + Backend.getMean() + "\n";
+      output += "Median: " + Backend.getMedian() + "\n";
+      output += "Standard Deviation: " + Backend.getSDev() + "\n";
+      System.out.println(output);
+      System.out.println(printMMCommands());
+      currentInput = scnr.nextLine();
+      if (currentInput.contentEquals("x")) {
+        mm = false;
+        return output;
+      } else {
+        System.out.println("Input not accepted");
+        continue;
+      }
     }
-    currentInput = sc.nextLine();
+    return null;
   }
 
-  public static void printMainCommands() {
-    System.out.println(
-        "User Commands:\n  's': enters student mode\n  'm': enters math mode\n  'q': exits the application");
+  public static String printMainCommands() {
+    return "User Commands:\n  's': enters student mode\n  'm': enters math mode\n  'q': exits the application";
   }
 
-  public static void printSMCommands() {
-    System.out.println(
-        "\nStudent Mode:\n  <number>: returns a list of students with the test score of <number>\n  'x': returns to the default menu\n");
+  public static String printSMCommands() {
+    return "\nStudent Mode:\n  <number>: returns a list of students with the test score of <number>\n  'x': returns to the default menu\n";
   }
 
-  public static void printMMCommands() {
-    System.out.println("\nMath Mode:\n  Enter 'x' to return to default mode\n");
+  public static String printMMCommands() {
+    return "\nMath Mode:\n  Enter 'x' to return to default mode\n";
   }
 
 
