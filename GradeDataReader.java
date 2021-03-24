@@ -41,6 +41,7 @@ public class GradeDataReader implements GradeDataReaderInterface{
 			throws FileNotFoundException, IOException, DataFormatException {
 		List<Grade> studentGrades = new ArrayList<Grade>();
 		String dataLine = null;
+		int grade = 0;
 		
 		// Essentially converts the reader into a buffered reader so it can iterate through the file
 		BufferedReader bufferedReader = new BufferedReader(csvReader);
@@ -56,7 +57,11 @@ public class GradeDataReader implements GradeDataReaderInterface{
 			String studentName = lineScan.next();
 			studentName = studentName + " " + lineScan.next();
 			
-			int grade = lineScan.nextInt();
+			if (lineScan.hasNextInt()){
+			grade = lineScan.nextInt();
+			} else {
+			  return studentGrades;
+			}
 			
 			Grade student = new Grade(studentName, grade);
 			studentGrades.add(student);
