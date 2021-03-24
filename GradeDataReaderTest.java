@@ -78,7 +78,7 @@ class GradeDataReaderTest {
 	 */
 	@Test
 	void FirstLast() {
-		List<GradeInterface> data = null;
+		List<Grade> data = null;
 		try {
 			data = dataReader.readDataSet(fr);
 		} catch (FileNotFoundException e) {
