@@ -15,18 +15,22 @@ compile:
 	javac GradeInterface.java
 	javac GradeDataReader.java
 	javac GradeDataReaderInterface.java
-	javac -cp ./junit5.jar;. GradeTest.java
+	javac Backend.java
+	javac BackendInterface.java
+	javac -cp .:./junit5.jar GradeTest.java GradeDataReaderTest.java
+	javac -cp .:./junit5.jar BackendTest.java 
 
 test: testData testBackend testFrontend
 
 testFrontend: 
-	@echo "FIXME: *make testFrontend* should compile (when needed) and run all your team's tests for this application"
+	
 
-testBackend: 
-	@echo "FIXME: *make testFrontend* should compile (when needed) and run all your team's tests for this application"
+testBackend: compile
+	java -jar junit5.jar -cp . --scan-classpath BackendTest
 
 testData: compile
 	java -jar junit5.jar -cp . --scan-classpath GradeTest
+	java -jar junit5.jar -cp . --scan-classpath GradeDataReaderTest
 
 clean:
 	rm *.class
