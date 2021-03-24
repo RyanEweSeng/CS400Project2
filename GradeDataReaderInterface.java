@@ -15,6 +15,6 @@ import java.io.IOException;
 import java.io.Reader;
 
 public interface GradeDataReaderInterface {
-	public List<GradeInterface> readDataSet(Reader inputFileReader)
+	public List<Grade> readDataSet(Reader inputFileReader)
 			throws FileNotFoundException, IOException, DataFormatException;
 }
