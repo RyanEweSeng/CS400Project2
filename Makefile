@@ -30,11 +30,11 @@ testFrontend: compile
 	# java -jar junit5.jar -cp . --scan-classpath TestFrontEnd
 
 testBackend: compile
-	java -jar junit5.jar -cp . --scan-classpath BackendTest
+	java -jar junit5.jar -cp . --scan-classpath -n BackendTest
 
 testData: compile
-	java -jar junit5.jar -cp . --scan-classpath GradeTest
-	java -jar junit5.jar -cp . --scan-classpath GradeDataReaderTest
+	java -jar junit5.jar -cp . --scan-classpath -n GradeTest
+	java -jar junit5.jar -cp . --scan-classpath -n GradeDataReaderTest
 
 clean:
 	rm *.class
