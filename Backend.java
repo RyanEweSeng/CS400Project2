@@ -16,7 +16,7 @@ import java.lang.Math;
 
 public class Backend implements BackendInterface {
 
-    private RedBlackTree<Grade> rbt = new RedBlackTree<Grade>();
+    public RedBlackTree<Grade> rbt = new RedBlackTree<Grade>();
     
     /**
      * default constructor that takes the list of grades and adds them to
