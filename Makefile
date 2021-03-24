@@ -22,12 +22,12 @@ compile:
 	javac Frontend.java
 	javac -cp .:./junit5.jar GradeTest.java GradeDataReaderTest.java
 	javac -cp .:./junit5.jar BackendTest.java
-	# javac -cp .:./junit5.jar TestFrontEnd.java
+	javac -cp .:./junit5.jar FrontEndTest.java
 
 test: testData testBackend testFrontend
 
 testFrontend: compile	
-	# java -jar junit5.jar -cp . --scan-classpath TestFrontEnd
+	java -jar junit5.jar -cp . --scan-classpath -n FrontEndTest
 
 testBackend: compile
 	java -jar junit5.jar -cp . --scan-classpath -n BackendTest
