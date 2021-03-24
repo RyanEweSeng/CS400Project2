@@ -93,11 +93,11 @@ class GradeDataReaderTest {
 		}
 
 		String firstGradeName = "Bryanna Plaisir";
-		Grade first = new Grade(firstGradeName, 76);
+		Grade first = new Grade(firstGradeName, 98);
 		assertEquals(first.toString(), data.get(0).toString());
 
-		String lastGradeName = "Dragan Malone";
-		Grade last = new Grade(lastGradeName, 23);
+		String lastGradeName = "Griffin Grass";
+		Grade last = new Grade(lastGradeName, 71);
 		assertEquals(last.toString(), data.get(data.size() - 1).toString());
 
 	}
