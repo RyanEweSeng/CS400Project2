@@ -1,13 +1,28 @@
+// --== CS400 File Header Information ==--
+// Name: Elliot Virtue
+// Email: evirtue@wisc.edu
+// Team: IG: Red
+// Role: Front End Developer
+// TA: Sid
+// Lecturer: Florian
+// Notes to Grader: None
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Frontend {
   private static Boolean run = true;
   private static Scanner sc = new Scanner(System.in);
   private static String currentInput;
-  private static Backend Backend = new Backend();
-
+    private static Backend Backend;
+  //private static Backend Backend = new Backend();
   public static void main(String[] args) {
-
+    try {
+    Backend = new Backend(new BufferedReader(new FileReader("Book1.csv")));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     while (run) {
       printMainCommands();
       currentInput = sc.nextLine();
@@ -57,7 +72,7 @@ public class Frontend {
           System.out.println("Number out of range, please input a number between 0 and 100");
           continue;
         } else {
-          System.out.println(Backend.get(numInput).toString());
+          //System.out.println(Backend.get(numInput).toString());
         }
       }
 
